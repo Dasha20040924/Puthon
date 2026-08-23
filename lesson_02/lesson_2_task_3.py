@@ -1,3 +1,5 @@
+import math
+
 def square(side):
     return side ** 2
 
