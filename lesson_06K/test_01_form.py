@@ -13,11 +13,13 @@ def test_form():
 
         wait = WebDriverWait(driver, 30)
         wait.until(
-            lambda d: d.execute_script("return document.readyState") == "complete"
+            lambda d: d.execute_script(
+                "return document.readyState"
+            ) == "complete"
         )
 
         values = {
-            "First name": "Иван",
+            "first-name": "Иван",
             "last-name": "Петров",
             "address": "Ленина, 55-3",
             "e-mail": "test@skypro.com",
@@ -29,7 +31,7 @@ def test_form():
         }
 
         for field_id, value in values.items():
-            driver.find_element(By.ID, field_id).send_keys("First name")
+            driver.find_element(By.NAME, field_id).send_keys(value)
 
         driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
 
@@ -42,5 +44,3 @@ def test_form():
 
     finally:
         driver.quit()
-
-        
