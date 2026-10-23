@@ -62,4 +62,3 @@ def test_shop_checkout():
 
     finally:
         driver.quit()
-
